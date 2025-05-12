@@ -1,1 +1,1 @@
-page = "mainPage"
+page = "mainpage"
