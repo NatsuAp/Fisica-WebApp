@@ -1,14 +1,16 @@
 from components.mainPage import deployMainPage
-from components.body import deployBody
 import Utils.pageManager as pageManager
-
+from components.homepage import deployHomePage
         
-      
+print(pageManager.page)
 match pageManager.page:
     case "mainPage":
         deployMainPage()
-    case "body":
-        deployBody()
+    case "homepage":
+        deployHomePage()
+
+    
+       
     
     
 

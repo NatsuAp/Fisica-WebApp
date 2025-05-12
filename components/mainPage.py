@@ -2,11 +2,19 @@ import streamlit as st
 from arduino.connection import checkConnection, dataRetrieval
 import Utils.pageManager as pageManager
 def deployMainPage():
-    st.title("***Para iniciar el experimento conecta el arduino***")
-
+    
+    
+    st.title("***Conecta el arduino***")
+    
     if st.button('Iniciar Conexion'):
-       if checkConnection():
-           dataRetrieval()
+       
+       arduino = checkConnection()
+       if arduino:
+           #dataRetrieval(arduino)
+           st.write("Conexion realizada correctamente")
+           if st.button("Iniciar experimento"):
+               pageManager.page="homepage"
+               st.rerun()
         
        else:
               container = st.container()
@@ -14,7 +22,5 @@ def deployMainPage():
         
          
         
-    if st.button("Simular conexion"):
-       pageManager.page="body"
-       st.rerun()
+   
         
