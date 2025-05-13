@@ -1,0 +1,44 @@
+LIMITED USE LICENSE  
+Project: Arduino Connection with Streamlit  
+Copyright (c) 2025 Andres Camilo Villadiego Garcia
+
+Permission is granted to use this software under the following terms and conditions:
+
+1. **Attribution**  
+   Proper credit must be given to the original author. This includes retaining this copyright notice
+   and any other attribution materials found in the code or documentation.
+
+2. **Permitted Uses**  
+   - This software may be used for personal, educational, or commercial purposes, provided that
+     attribution is maintained and no source or binary redistribution is performed without explicit authorization.
+   - Users are allowed to **modify the source code** for their own purposes — including internal institutional use,
+     research, testing, training, or commercial development — as long as proper attribution is preserved.
+   - Any public or private redistribution of modified versions is prohibited unless expressly authorized by the author.
+
+3. **Restricted Distribution**  
+   - Redistribution, public sharing, sublicensing, or packaging of this software or modified versions
+     is not allowed without prior written permission from the author.
+   - If you wish to integrate this software into third-party commercial products or distribute it
+     externally, you must obtain an **extended commercial license** by contacting the author.
+
+4. **Third-Party Code**  
+   This project may include third-party components subject to their own licensing terms. It is your
+   responsibility to comply with those terms. External libraries used in this project (e.g., `pyserial`,
+   `streamlit`, etc.) must be used in accordance with their respective licenses.
+
+5. **Prohibited Uses**  
+   - The use of this software in illegal, unethical, or human rights–violating activities is strictly prohibited.
+   - The software may not be used to develop weapons, perform unauthorized surveillance, enable discriminatory practices,
+     or manipulate personal data without informed consent.
+
+6. **Limitation of Liability**  
+   This software is provided "as is", without warranty of any kind, express or implied. In no event
+   shall the author be held liable for any damages, losses, or harm resulting from the use or misuse of the software.
+
+7. **Contact for Extended Licensing**  
+   To request permission for redistribution, commercial integration, or formal partnerships, please contact:  
+   📧 Andrewtt824@gmail.com
+
+---
+
+By using this software, you agree to all the terms outlined in this license.
