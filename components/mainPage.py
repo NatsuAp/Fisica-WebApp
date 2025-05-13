@@ -32,10 +32,10 @@ def deployMainPage():
     if st.session_state.clicked:
         with st.spinner("Estableciendo conexión", show_time=True):
             arduino = checkConnection()
-            asyncCall()
+            
             print("Si paso")
         if arduino:
-           
+           asyncCall()
            st.session_state.success = True
            st.session_state.failure = False
            st.session_state.disabled = True

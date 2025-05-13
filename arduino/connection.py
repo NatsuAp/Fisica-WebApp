@@ -8,7 +8,7 @@ portName = None
 #Si esta conectado al arduino y recibio los datos correctamente
 def checkConnection():
     global portName 
-    time.sleep(2)
+    
     try:
      #El primer parametro es el puerto
      #baudrate es la velocidad de transmision de datos en baudios pr segundo TODO:Verificar en el arudino el "Serial.begin(9600);", en este caso se usara 9600 por defecto
