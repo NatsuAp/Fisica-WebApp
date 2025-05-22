@@ -14,7 +14,7 @@ def checkConnection(userPort=None):
      #baudrate es la velocidad de transmision de datos en baudios pr segundo TODO:Verificar en el arudino el "Serial.begin(9600);", en este caso se usara 9600 por defecto
      #timeout es la cantidad de tiempo que esperara para leer datos antes de rendirse
      if userPort is None:
-        print("sexo")
+        
         ports = list(serial.tools.list_ports.comports())
         for port in ports:
           if "usb"  in port.description.lower() or "arduino" in port.description.lower():
@@ -24,9 +24,10 @@ def checkConnection(userPort=None):
                 portName= port.device
                 print(arduino)
                 return arduino
-     if userPort:
+     if userPort is not None:
        arduino = serial.Serial(userPort, baudrate=9600, timeout=5)
        portName = userPort
+       print("aaa")
        return arduino   
         
     except Exception as e:
