@@ -64,7 +64,7 @@ def deployMainPage():
             else:
                 arduino = checkConnection(None)
            
-            #arduino = True
+            arduino = True
         if arduino != "userError" and arduino is not None: 
            #asyncCall()
            st.session_state.success = True
