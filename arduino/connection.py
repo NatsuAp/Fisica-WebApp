@@ -6,7 +6,7 @@ from Utils import pageManager
 arduino = None
 portName = None
 #Si esta conectado al arduino y recibio los datos correctamente
-def checkConnection(userPort=None):
+def checkConnection(userPort):
     global portName 
     
     try:

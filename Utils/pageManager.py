@@ -1,1 +1,1 @@
-page = "mainpage"
+page = "login"

@@ -1,0 +1,84 @@
+
+### PREGUNTA_1 ###
+ENUNCIADO:
+La estudiante Camila, del colegio Monte Real, quiere encontrarse con su amiga Laura durante el descanso para estudiar juntas. Camila parte desde el origen caminando a una rapidez constante de 4 m/s. Justo cuando comienza a moverse, Laura se encuentra a 12 m de distancia y se aleja de ella caminando a 3 m/s.
+
+PREGUNTA:
+¿Cuál de las siguientes ecuaciones describe el movimiento de Camila y Laura?
+
+OPCIONES:
+a. Camila: x_f = 12 m + (3 m/s) t     Laura: x_f = 0 m + (4 m/s) t
+b. Camila: x_f = 0 m + (4 m/s) t      Laura: x_f = 12 m + (3 m/s) t
+c. Camila: x_f = 12 m + (4 m/s) t     Laura: x_f = 0 m + (3 m/s) t
+
+RESPUESTA_CORRECTA: b
+
+### PREGUNTA_2 ###
+ENUNCIADO:
+El estudiante Diego, del colegio Horizonte Azul, sale desde su salón caminando con rapidez constante de 6 m/s. Su amigo Julián se encuentra a 18 m de distancia y se mueve en dirección opuesta con una rapidez de 2 m/s. Ambos comienzan a moverse al mismo tiempo.
+
+PREGUNTA:
+¿Cuál de las siguientes ecuaciones describe el movimiento de Diego y Julián?
+
+OPCIONES:
+a. Diego: x_f = 0 m + (6 m/s) t       Julián: x_f = 18 m - (2 m/s) t
+b. Diego: x_f = 18 m + (6 m/s) t      Julián: x_f = 0 m + (2 m/s) t
+c. Diego: x_f = 0 m - (2 m/s) t       Julián: x_f = 18 m + (6 m/s) t
+
+RESPUESTA_CORRECTA: a
+
+### PREGUNTA_3 ###
+ENUNCIADO:
+La estudiante Sofía, del colegio Nuevo Amanecer, empieza a caminar desde el punto de referencia con una rapidez de 3 m/s. Su amigo Leo se encuentra a 10 m por delante y también se mueve hacia adelante, pero a una rapidez constante de 1 m/s. Ambos se mueven en la misma dirección desde el mismo instante.
+
+PREGUNTA:
+¿Cuál de las siguientes ecuaciones describe el movimiento de Sofía y Leo?
+
+OPCIONES:
+a. Sofía: x_f = 0 m + (3 m/s) t       Leo: x_f = 10 m + (1 m/s) t
+b. Sofía: x_f = 10 m + (3 m/s) t      Leo: x_f = 0 m + (1 m/s) t
+c. Sofía: x_f = 10 m - (1 m/s) t      Leo: x_f = 0 m + (3 m/s) t
+
+RESPUESTA_CORRECTA: a
+
+### PREGUNTA_4 ###
+ENUNCIADO:
+El estudiante Martín, del colegio Santa Clara, sale desde su casa caminando a una rapidez constante de 5 m/s. Su amiga Paula, que se encuentra a 20 m por delante, se mueve en la misma dirección a una rapidez constante de 2 m/s. Ambos comienzan a moverse al mismo tiempo.
+
+PREGUNTA:
+¿Cuál de las siguientes ecuaciones describe el movimiento de Martín y Paula?
+
+OPCIONES:
+a. Martín: x_f = 0 m + (5 m/s) t       Paula: x_f = 20 m + (2 m/s) t
+b. Martín: x_f = 20 m + (5 m/s) t      Paula: x_f = 0 m + (2 m/s) t
+c. Martín: x_f = 0 m + (2 m/s) t       Paula: x_f = 20 m + (5 m/s) t
+
+RESPUESTA_CORRECTA: a
+
+### PREGUNTA_5 ###
+ENUNCIADO:
+Ana se encuentra en el punto de origen de una pista recta y comienza a correr a 7 m/s. Su compañera Isabel está 14 m más adelante y camina en la misma dirección a 2 m/s.
+
+PREGUNTA:
+¿Cuál de las siguientes ecuaciones describe el movimiento de Ana e Isabel?
+
+OPCIONES:
+a. Ana: x_f = 14 m + (7 m/s) t       Isabel: x_f = 0 m + (2 m/s) t
+b. Ana: x_f = 0 m + (7 m/s) t        Isabel: x_f = 14 m + (2 m/s) t
+c. Ana: x_f = 0 m + (2 m/s) t        Isabel: x_f = 14 m + (7 m/s) t
+
+RESPUESTA_CORRECTA: b
+
+### PREGUNTA_6 ###
+ENUNCIADO:
+Luis parte desde el origen caminando hacia su amiga Mariana, quien se encuentra a 30 m de distancia y se acerca a él caminando a 3 m/s. Luis avanza a una rapidez constante de 4 m/s.
+
+PREGUNTA:
+¿Cuál de las siguientes ecuaciones describe el movimiento de Luis y Mariana?
+
+OPCIONES:
+a. Luis: x_f = 0 m - (3 m/s) t        Mariana: x_f = 30 m + (4 m/s) t
+b. Luis: x_f = 30 m + (4 m/s) t       Mariana: x_f = 0 m - (3 m/s) t
+c. Luis: x_f = 0 m + (4 m/s) t        Mariana: x_f = 30 m - (3 m/s) t
+
+RESPUESTA_CORRECTA: c

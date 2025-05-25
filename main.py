@@ -4,8 +4,9 @@ from components.homepage import deployHomePage
 import streamlit as st
 from components.Experimentos.mru import deployMRU
 from components.ErrorPage import deployWarningPage
-    
-         
+from components.login import deployLoginPage   
+
+#pageManager.page= "mru"
     
 print(pageManager.page)
 match pageManager.page:
@@ -17,6 +18,8 @@ match pageManager.page:
         deployWarningPage()
     case "mru":
         deployMRU()
+    case "login":
+        deployLoginPage()
         
 
     
