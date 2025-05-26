@@ -1,29 +1,57 @@
 import streamlit as st
 import time
 import Utils.pageManager as pageManager
-from arduino.connection import checkConnection, asyncCall
+# from arduino.connection import checkConnection, asyncCall
+def checkInput():
+    try:
+        if st.session_state.numEstu>8:
+            st.error("Numero de estudiantes Excedido")
+            st.session_state.x = False
+        else:
+            st.session_state.x = True
+        if st.session_state.numEstu <1:
+            st.session_state.x = False
+    except Exception as e:
+        st.session_state.x=False
+    
 def deployLoginPage():
-
+    if "numEstu" not in st.session_state:
+         st.session_state.numEstu = None
+    if "x" not in st.session_state:
+         st.session_state.x = False
+    if "clicked" not in st.session_state:
+        st.session_state.clicked = False
     datos = []
+    nombreEstudiantes = []
     st.title("***Para empezar ingresa tus datos***")
-    with st.form("Datos", enter_to_submit=False):
+    with st.container(border=True):
         st.header("Ingrese los siguientes datos:")
-        st.write("Datos del estudiante:")
-        nombreEstu= st.text_input("Nombre del Estudiante")
-        correoEstu = st.text_input("Correo del Estudiante")
-        confirmEstu = st.text_input("Confirma tu Correo")
+        st.write("Numero de Integrantes:")
+        st.session_state.numEstu = st.number_input("Numero de Integrantes", value=None, step=1,format="%01d", on_change=checkInput, min_value=0)
+
+        if st.session_state.x:
+            for i in range(1,st.session_state.numEstu+1):
+                nombreEstu= st.text_input(f"Nombre del Estudiante {i}")
+                nombreEstudiantes.append(nombreEstu)
+            correoEstu = st.text_input("Ingerese el Correo de un Estudiante:")
+            confirmEstu = st.text_input("Confirma tu Correo")
         st.write("Datos del profesor:")
         nombreProf = st.text_input("Nombre del Profesor")
         correoProf = st.text_input("Correo del Profesor")
+        
         confirmProf = st.text_input("Confirma el Correo")
-        submitted = st.form_submit_button("Confirmar")
-        datos.append(nombreEstu)
-        datos.append(correoEstu)
-        datos.append(confirmEstu)
-        datos.append(nombreProf)    
-        datos.append(correoProf)
-        datos.append(confirmProf)
-        if submitted:
+
+        if st.button("Confirmar"):
+            st.session_state.clicked = True
+
+        if st.session_state.clicked:
+            datos.append(nombreEstudiantes)
+            datos.append(correoEstu)
+            datos.append(confirmEstu)
+            datos.append(nombreProf)   
+            datos.append(correoProf)
+            datos.append(confirmProf)
+
             if any(map(lambda x: x=="", datos)):
                 st.warning("⚠️ ¡Faltan campos por completar! 📝 Por favor, llena todos los datos requeridos antes de continuar. ✍️")
                  

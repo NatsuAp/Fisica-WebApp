@@ -1,6 +1,6 @@
 import time
-import serial
 import serial.tools.list_ports
+
 import threading
 from Utils import pageManager
 arduino = None

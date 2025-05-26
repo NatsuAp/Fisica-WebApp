@@ -43,11 +43,11 @@ def deployMainPage():
                 
             with col2:
                 connectionButton("Conexion Automatica", False)  
-                      
+                     
                   
     if st.session_state.counter<3:   
      connectionButton("Iniciar Conexion", False) 
-    
+     
     
     
     
@@ -61,8 +61,10 @@ def deployMainPage():
         with st.spinner("Estableciendo conexión", show_time=True):
             if  st.session_state.manualClick:
                 arduino = checkConnection(st.session_state.userPort)
+                
             else:
                 arduino = checkConnection(None)
+                
            
             arduino = True
         if arduino != "userError" and arduino is not None: 

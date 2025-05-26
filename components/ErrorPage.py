@@ -1,5 +1,5 @@
 import streamlit as st
-from arduino.connection import checkConnection
+# from arduino.connection import checkConnection
 from Utils import pageManager
 def deployWarningPage():
     st.error('Se ha perdido la conexion inesperadamente con el arduino  \n\n Reconecta el arduino para continuar' , icon="⚠️")
