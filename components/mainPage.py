@@ -11,6 +11,7 @@ def connectionButton(nombre, manual):
      
    
 def deployMainPage():
+    
     if "counter" not in st.session_state:
         st.session_state.counter = 0
     if "clicked" not in st.session_state:
@@ -66,9 +67,9 @@ def deployMainPage():
                 arduino = checkConnection(None)
                 
            
-            arduino = True
+            #arduino = True
         if arduino != "userError" and arduino is not None: 
-           #asyncCall()
+           asyncCall()
            st.session_state.success = True
            st.session_state.failure = False
            st.session_state.disabled = True

@@ -132,15 +132,18 @@ def crear_laboratorio_mru_pdf(
    
     #PREGUNTA 1
     contenido.append(Paragraph("1. (0.5 Puntos) Dibuje un gráfico de posición vs tiempo con los datos de la Tabla #2.", styles["Normal"]))
-    img = Image(st.session_state.img_ans_1)
+    try:
+        img = Image(st.session_state.img_ans_1)
+        img._restrictSize(400, 300)
+    except Exception as e:
+        img = None
     
-    img._restrictSize(400, 300)
     contenido.append(img)
     contenido.append(Spacer(1, 8))
     #PREGUNTA 2
     contenido.append(Paragraph("2. (0.5 Puntos) Calcule la pendiente de 4 pares de puntos diferentes de la recta.", styles["Normal"]))
     respuesta_usuario_2 = st.session_state.ans_2_a + " " + st.session_state.ans_2_b + " " + st.session_state.ans_2_c + " " + st.session_state.ans_2_d
-    respuesta_usuario_2.replace("#", " ")
+    respuesta_usuario_2 = respuesta_usuario_2.replace("#", " ")
     contenido.append(Paragraph(f"<b>Respuesta:</b> {respuesta_usuario_2}", styles["Normal"]))
     contenido.append(Spacer(1, 8))
     #PREGUNTA 3
@@ -174,10 +177,12 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     contenido.append(Spacer(1, 8))
     contenido.append(Paragraph("A partir de los datos de la tabla realice un grafico de velocidad vs tiempo", styles["Normal"]))
 
+    try:
+        img_2 = Image(st.session_state.img_ans_2)
+        img_2._restrictSize(400, 300)
+    except Exception as e:
+        img_2 = None
     
-    img_2 = Image(st.session_state.img_ans_2)
-    
-    img_2._restrictSize(400, 300)
     contenido.append(img_2)
     contenido.append(Spacer(1, 8))
     #PREGUNTA 6
@@ -220,9 +225,12 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
             styles["Normal"],
         )
     )
-    img_3 = Image(st.session_state.img_ans_3)
+    try:
+        img_3 = Image(st.session_state.img_ans_3)
+        img_3._restrictSize(400, 300)
+    except Exception as e:
+        img_3 = None
     
-    img_3._restrictSize(400, 300)
     contenido.append(img_3)
     contenido.append(Spacer(1, 8))
     contenido.append(
@@ -347,6 +355,9 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     doc.build(contenido)
     st.success(f"📄 Documento creado exitosamente!")
     
-
-    sendData.enviar_pdf_por_correo(correo)
-
+    try:
+        sendData.enviar_pdf_por_correo(correo, nombreEstudiante)
+        return True
+    except Exception as e:
+        return False
+        

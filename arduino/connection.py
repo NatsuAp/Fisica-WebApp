@@ -17,6 +17,7 @@ def checkConnection(userPort):
         
         ports = list(serial.tools.list_ports.comports())
         for port in ports:
+          print(port)
           if "usb"  in port.description.lower() or "arduino" in port.description.lower():
                 print(port.name)
                 arduino = serial.Serial(port.device, baudrate=9600, timeout=5)

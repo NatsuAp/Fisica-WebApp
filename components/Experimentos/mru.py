@@ -6,27 +6,41 @@ import pandas as pd
 from arduino import arduinoDataManager
 from PIL import Image
 import time
-from data import questionBank
+from data import questionBank, sendData
 from data import fileCreator
 from datetime import datetime
-
-
+def checkError(check):
+    if not check:
+        st.session_state.error = True
+        return True
+    return False
 def getArduinoData():
     st.write("Arduino call")
-
+def reTryEndExperiment():
+    file = open("Utils/loginData.txt","r")
+    loginData = file.readlines()
+    
+    bol = fileCreator.crear_laboratorio_mru_pdf("Experimento_Movimiento_Rectilineo_Uniforme (MRU)" + loginData[0], 
+                                                  loginData[2], 
+                                                  loginData[0],
+                                                  datetime.now().date(),
+                                                  st.session_state.datosArduino,
+                                                  st.session_state.loginData[3]
+                                                  )
+    return bol
 def endExperiment():
     
     file = open("Utils/loginData.txt","r")
     loginData = file.readlines()
     st.session_state.loginData = loginData
-    fileCreator.crear_laboratorio_mru_pdf("Experimento_Movimiento_Rectilineo_Uniforme (MRU)" + loginData[0], 
+    bol = fileCreator.crear_laboratorio_mru_pdf("Experimento_Movimiento_Rectilineo_Uniforme (MRU)" + loginData[0], 
                                                   loginData[2], 
                                                   loginData[0],
                                                   datetime.now().date(),
                                                   st.session_state.datosArduino,
                                                   loginData[3]
                                                   )
-    
+    return bol
 
 
 def goBack():
@@ -510,7 +524,7 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
         index=None,
         key="ans_15",
     )
-
+   
     if st.session_state.continuar:
         st.warning(
             "⚠️ Dejaste algunas preguntas sin resolver, estas seguro que quieres continuar?"
@@ -518,22 +532,30 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
     if st.button("Enviar Respuesta", key="final"):
 
         st.session_state.continuar = checkQuestionsMissing()
-        try:
-            if not st.session_state.continuar:
-                endExperiment()
-            
-                goBack()
-            if st.session_state.seguro:
-                st.session_state.continuar = False
-                endExperiment()
-                goBack()
-            
-        except Exception as e:
-            
-            st.session_state.error = True   
-    if st.session_state.error:
-        st.error(f"""Error Inesperado, Probablemente tenga que ver con el correo del profesor ingresado \n 
-                 Correo del Profesor:{st.session_state.loginData[3]}""")
         
+        if not st.session_state.continuar:
+            temp = endExperiment()
+            if not checkError(temp):
+                goBack()
+            
+        if st.session_state.seguro:
+            st.session_state.continuar = False
+            temp = endExperiment()
+            if not checkError(temp):
+                goBack()
+            
+    st.session_state.seguro = True
+    
+    if st.session_state.error:
+        st.error(f"""No se pudo enviar el correo, Probablemente tenga que ver con el correo del profesor ingresado \n 
+                Correo del Profesor:{st.session_state.loginData[3]}""")
+        st.write("Ingresa nuevamente el correo")
+        st.session_state.loginData[3] = st.text_input("Ingresa el correo del profesor", key= "correo_prof")
+        if st.button("Reintentar"):
+            temp = reTryEndExperiment()
+            if not checkError(temp):
+                goBack() 
+            else:
+               st.error("No se encontro el correo para enviar el documento")
 
-        st.rerun()
+        

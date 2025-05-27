@@ -6,10 +6,12 @@ from dotenv import load_dotenv
 import os
 
 def enviar_pdf_por_correo(correo, estudiantes):
-    load_dotenv() 
+    load_dotenv()
     # Crear el mensaje
     remitente = os.getenv('CorreoRemitente')
+    print(remitente)
     contraseña = os.getenv('contrasenaRemitente')
+    print(contraseña)
     ruta_pdf = 'pdfs\Experimento_MRU.pdf'  # Ruta del archivo PDF que deseas enviar
     destinatario = correo
     asunto = 'Taller MRU'
