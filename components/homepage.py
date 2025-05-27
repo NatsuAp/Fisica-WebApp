@@ -4,7 +4,7 @@ from Utils import pageManager
     
 def deployHomePage():
     
-        
+    print(st.session_state.nombre_Profesor)  
     with st.container(height=None, border=None, key=None):
         st.title("Escoge tu experimento")
         st.header("Movimiento Rectilineo Uniforme (MRU)")

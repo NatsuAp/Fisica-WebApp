@@ -1,0 +1,362 @@
+[
+  {
+    "id": "C1",
+    "type": "conceptual",
+    "question": "En un movimiento rectilíneo uniforme, la relación entre distancia y tiempo es:",
+    "options": {
+      "a": "Lineal",
+      "b": "Cuadrática",
+      "c": "Exponencial",
+      "d": "Logarítmica"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "C2",
+    "type": "conceptual",
+    "question": "Para un móvil en MRU, la gráfica posición-tiempo es:",
+    "options": {
+      "a": "Una línea recta inclinada",
+      "b": "Una línea horizontal",
+      "c": "Una parábola",
+      "d": "Una curva exponencial"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "C3",
+    "type": "conceptual",
+    "question": "La velocidad en MRU es:",
+    "options": {
+      "a": "Variable",
+      "b": "Constante",
+      "c": "Inversamente proporcional al tiempo",
+      "d": "Nula"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "C4",
+    "type": "conceptual",
+    "question": "La aceleración en MRU es:",
+    "options": {
+      "a": "Cero",
+      "b": "Constante pero no nula",
+      "c": "Variable",
+      "d": "Negativa"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "C5",
+    "type": "conceptual",
+    "question": "Si un móvil recorre distancias iguales en tiempos iguales, su movimiento es:",
+    "options": {
+      "a": "MRU",
+      "b": "MRUV",
+      "c": "Movimiento circular",
+      "d": "Movimiento armónico"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "C6",
+    "type": "conceptual",
+    "question": "La pendiente de la gráfica posición-tiempo en MRU corresponde a:",
+    "options": {
+      "a": "Aceleración",
+      "b": "Velocidad",
+      "c": "Distancia total",
+      "d": "Tiempo"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "C7",
+    "type": "conceptual",
+    "question": "En MRU, el área bajo la gráfica velocidad-tiempo representa:",
+    "options": {
+      "a": "Aceleración",
+      "b": "Energía cinética",
+      "c": "Desplazamiento",
+      "d": "Velocidad promedio"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "C8",
+    "type": "conceptual",
+    "question": "Un móvil con velocidad constante distinta de cero y aceleración cero está en:",
+    "options": {
+      "a": "Reposo",
+      "b": "MRU",
+      "c": "MRUV",
+      "d": "Movimiento circular uniforme"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "C9",
+    "type": "conceptual",
+    "question": "La unidad de velocidad en el SI es:",
+    "options": {
+      "a": "m/s",
+      "b": "km/h",
+      "c": "cm/s",
+      "d": "m"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "C10",
+    "type": "conceptual",
+    "question": "Si el tiempo se duplica en MRU, la distancia recorrida:",
+    "options": {
+      "a": "Permanece igual",
+      "b": "Se duplica",
+      "c": "Se triplica",
+      "d": "Se reduce a la mitad"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "CL1",
+    "type": "calculo",
+    "question": "Un automóvil recorre 120 m en 8 s a velocidad constante. ¿Cuál es su rapidez?",
+    "options": {
+      "a": "15 m/s",
+      "b": "10 m/s",
+      "c": "12 m/s",
+      "d": "14 m/s"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "CL2",
+    "type": "calculo",
+    "question": "Un corredor se desplaza a 5 m/s durante 40 s. ¿Qué distancia recorre?",
+    "options": {
+      "a": "160 m",
+      "b": "180 m",
+      "c": "200 m",
+      "d": "220 m"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "CL3",
+    "type": "calculo",
+    "question": "Un tren cubre 3 km en 150 s. ¿Cuál es su velocidad en m/s?",
+    "options": {
+      "a": "25 m/s",
+      "b": "20 m/s",
+      "c": "15 m/s",
+      "d": "30 m/s"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "CL4",
+    "type": "calculo",
+    "question": "Un ciclista se mueve a 7 m/s. ¿Qué distancia recorre en 300 s?",
+    "options": {
+      "a": "2 100 m",
+      "b": "2 700 m",
+      "c": "1 900 m",
+      "d": "2 500 m"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "CL5",
+    "type": "calculo",
+    "question": "Un perro corre a 2.5 m/s. ¿Cuánto tarda en recorrer 50 m?",
+    "options": {
+      "a": "10 s",
+      "b": "15 s",
+      "c": "20 s",
+      "d": "25 s"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "CL6",
+    "type": "calculo",
+    "question": "Convierte 90 km/h a m/s.",
+    "options": {
+      "a": "22.5 m/s",
+      "b": "24 m/s",
+      "c": "25 m/s",
+      "d": "27 m/s"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "CL7",
+    "type": "calculo",
+    "question": "Un vehículo recorre 500 m en 25 s. ¿Cuál es su velocidad promedio?",
+    "options": {
+      "a": "18 m/s",
+      "b": "20 m/s",
+      "c": "22 m/s",
+      "d": "24 m/s"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "CL8",
+    "type": "calculo",
+    "question": "Un peatón avanza a 1.2 m/s durante 15 min. ¿Qué distancia recorre?",
+    "options": {
+      "a": "1 000 m",
+      "b": "1 080 m",
+      "c": "1.2 km",
+      "d": "980 m"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "CL9",
+    "type": "calculo",
+    "question": "Una bala se desplaza a 340 m/s. ¿Qué distancia recorre en 0.003 s?",
+    "options": {
+      "a": "0.34 m",
+      "b": "1.02 m",
+      "c": "3.4 m",
+      "d": "102 m"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "CL10",
+    "type": "calculo",
+    "question": "Un atleta cubre 100 m en 11 s. ¿Cuál fue su rapidez promedio?",
+    "options": {
+      "a": "8 m/s",
+      "b": "9 m/s",
+      "c": "9.1 m/s",
+      "d": "10 m/s"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "G1",
+    "type": "grafico",
+    "question": "Un gráfico velocidad-tiempo muestra una línea horizontal en 4 m/s durante 30 s. ¿Qué distancia se ha recorrido?",
+    "options": {
+      "a": "90 m",
+      "b": "110 m",
+      "c": "120 m",
+      "d": "150 m"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "G2",
+    "type": "grafico",
+    "question": "La gráfica posición-tiempo de un móvil es una línea recta que va de 0 m a 200 m en 40 s. ¿Cuál es la velocidad?",
+    "options": {
+      "a": "4 m/s",
+      "b": "5 m/s",
+      "c": "6 m/s",
+      "d": "8 m/s"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "G3",
+    "type": "grafico",
+    "question": "Un gráfico v-t indica v = 12 m/s constante durante los primeros 10 s. Desplazamiento en ese intervalo:",
+    "options": {
+      "a": "110 m",
+      "b": "120 m",
+      "c": "100 m",
+      "d": "130 m"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "G4",
+    "type": "grafico",
+    "question": "La gráfica posición-tiempo de un móvil es una línea horizontal a 50 m. La velocidad es:",
+    "options": {
+      "a": "0 m/s",
+      "b": "5 m/s",
+      "c": "10 m/s",
+      "d": "50 m/s"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "G5",
+    "type": "grafico",
+    "question": "Un gráfico v-t muestra v = 6 m/s durante 15 s. ¿Qué distancia recorre el móvil?",
+    "options": {
+      "a": "60 m",
+      "b": "75 m",
+      "c": "90 m",
+      "d": "100 m"
+    },
+    "answer": "c"
+  },
+  {
+    "id": "G6",
+    "type": "grafico",
+    "question": "En una gráfica x-t, la recta tiene pendiente 2.5 m/s. Esa pendiente representa:",
+    "options": {
+      "a": "Aceleración",
+      "b": "Velocidad",
+      "c": "Distancia",
+      "d": "Tiempo"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "G7",
+    "type": "grafico",
+    "question": "Un móvil tiene un gráfico v-t con v = -3 m/s constante durante 20 s. Su desplazamiento es:",
+    "options": {
+      "a": "60 m",
+      "b": "-60 m",
+      "c": "0 m",
+      "d": "-6 m"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "G8",
+    "type": "grafico",
+    "question": "La gráfica x-t muestra que el móvil pasa de 0 m a 100 m en 20 s con línea recta. Su rapidez promedio es:",
+    "options": {
+      "a": "4 m/s",
+      "b": "5 m/s",
+      "c": "6 m/s",
+      "d": "2 m/s"
+    },
+    "answer": "b"
+  },
+  {
+    "id": "G9",
+    "type": "grafico",
+    "question": "Un gráfico v-t presenta v = 4 m/s los primeros 10 s y luego v = 6 m/s durante 5 s. El desplazamiento total es:",
+    "options": {
+      "a": "70 m",
+      "b": "60 m",
+      "c": "90 m",
+      "d": "100 m"
+    },
+    "answer": "a"
+  },
+  {
+    "id": "G10",
+    "type": "grafico",
+    "question": "Si la gráfica x-t es completamente horizontal, podemos concluir que:",
+    "options": {
+      "a": "Hay MRU",
+      "b": "El móvil está en reposo",
+      "c": "La velocidad aumenta",
+      "d": "El tiempo se detuvo"
+    },
+    "answer": "b"
+  }
+]

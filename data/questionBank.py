@@ -1,6 +1,9 @@
 import random
+import json
+import random
+from pathlib import Path
 
-def escoger_pregunta_aleatoria():
+def escoger_pregunta_aleatoria_7():
     with open("resources/preguntas.txt", "r", encoding="utf-8") as f:
         contenido = f.read()
 
@@ -51,3 +54,32 @@ def escoger_pregunta_aleatoria():
     # Seleccionar una pregunta aleatoria
     seleccionada = random.choice(preguntas)
     return seleccionada
+def escoger_pregunta_aleatoria_10_16(
+    file_path: str | Path = "resources\mru_question_bank.json",
+    n_each: int = 2,
+    seed: int | None = None
+):
+    if seed is not None:
+        random.seed(seed)
+
+    # Leer banco de preguntas
+    with open(file_path, encoding="utf-8") as f:
+        bank = json.load(f)
+
+    # Clasificar por tipo
+    by_type = {"conceptual": [], "calculo": [], "grafico": []}
+    for question in bank:
+        qtype = question["type"]
+        if qtype in by_type:
+            by_type[qtype].append(question)
+
+    # Elegir n_each al azar de cada categoría
+    selected = []
+    for qtype, bucket in by_type.items():
+        if len(bucket) < n_each:
+            raise ValueError(f"No hay suficientes preguntas tipo '{qtype}'.")
+        selected.extend(random.sample(bucket, k=n_each))
+
+    # Mezclar el resultado final para que no queden agrupadas por tipo
+    random.shuffle(selected)
+    return selected
