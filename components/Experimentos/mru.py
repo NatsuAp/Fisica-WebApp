@@ -11,7 +11,6 @@ from data import fileCreator
 from datetime import datetime
 
 
-
 def getArduinoData():
     st.write("Arduino call")
 
@@ -19,13 +18,13 @@ def endExperiment():
     
     file = open("Utils/loginData.txt","r")
     loginData = file.readlines()
-    
+    st.session_state.loginData = loginData
     fileCreator.crear_laboratorio_mru_pdf("Experimento_Movimiento_Rectilineo_Uniforme (MRU)" + loginData[0], 
                                                   loginData[2], 
                                                   loginData[0],
                                                   datetime.now().date(),
                                                   st.session_state.datosArduino,
-                                                  loginData[4]
+                                                  loginData[3]
                                                   )
     
 
@@ -49,6 +48,10 @@ def checkQuestionsMissing():
 
 
 def deployMRU():
+    if "loginData" not in st.session_state:
+        st.session_state.loginData = []
+    if "error" not in st.session_state:
+        st.session_state.error = False
     if "continuar" not in st.session_state:
         st.session_state.continuar = False
     if "seguro" not in st.session_state:
@@ -508,9 +511,6 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
         key="ans_15",
     )
 
-    st.write(st.session_state.preguntas)
-    st.write(st.session_state.resEstudiante)
-
     if st.session_state.continuar:
         st.warning(
             "⚠️ Dejaste algunas preguntas sin resolver, estas seguro que quieres continuar?"
@@ -518,14 +518,22 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
     if st.button("Enviar Respuesta", key="final"):
 
         st.session_state.continuar = checkQuestionsMissing()
-
-        if not st.session_state.continuar:
-            endExperiment()
+        try:
+            if not st.session_state.continuar:
+                endExperiment()
             
-            goBack()
-        if st.session_state.seguro:
-            st.session_state.continuar = False
-            endExperiment()
-            goBack()
-        st.session_state.seguro = True
+                goBack()
+            if st.session_state.seguro:
+                st.session_state.continuar = False
+                endExperiment()
+                goBack()
+            st.session_state.seguro = True
+        except Exception as e:
+            print(e)
+            st.session_state.error = True   
+    if st.session_state.error:
+        st.error(f"""Error Inesperado, Probablemente tenga que ver con el correo del profesor ingresado \n 
+                 Correo del Profesor:{st.session_state.loginData[3]}""")
+
+
         st.rerun()

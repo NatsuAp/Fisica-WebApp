@@ -1,3 +1,4 @@
+import shutil
 import streamlit as st
 import time
 import Utils.pageManager as pageManager
@@ -15,6 +16,11 @@ def checkInput():
         st.session_state.x=False
     st.session_state.x = True
 def deployLoginPage():
+    try:
+        shutil.rmtree("temp_images")
+    except Exception as e:
+        print(e)
+
     if "numEstu" not in st.session_state:
          st.session_state.numEstu = None
     if "x" not in st.session_state:

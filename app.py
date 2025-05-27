@@ -11,7 +11,8 @@ from components.endPage import deployEndPage
 
 #pageManager.page= "mru"
 
-shutil.rmtree("temp_images")
+
+   
 print(pageManager.page)
 match pageManager.page:
     case "mainpage":
