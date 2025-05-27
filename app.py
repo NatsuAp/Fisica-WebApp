@@ -5,6 +5,7 @@ import streamlit as st
 from components.Experimentos.mru import deployMRU
 from components.ErrorPage import deployWarningPage
 from components.login import deployLoginPage   
+from components.endPage import deployEndPage
 if "nombre_Profesor" not in st.session_state:
     st.session_state.nombre_Profesor = ""
 #pageManager.page= "mru"
@@ -21,6 +22,8 @@ match pageManager.page:
         deployMRU()
     case "login":
         deployLoginPage()
+    case "end":
+        deployEndPage()
         
 
     

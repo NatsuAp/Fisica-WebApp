@@ -2,7 +2,7 @@
 setlocal
 
 :: Ruta al entorno virtual (ajusta si es diferente)
-set VENV_DIR=.env
+set VENV_DIR=.venv
 set APP_FILE=app.py
 
 :: Verificar que el entorno virtual existe

@@ -11,6 +11,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
 from reportlab.platypus import Image
 import streamlit as st
+from data import sendData
 def crear_laboratorio_mru_pdf(
     nombre_archivo,
     nombreProfesor,
@@ -36,14 +37,13 @@ def crear_laboratorio_mru_pdf(
     )
     
     nombre = ""
-    for i in st.session_state.nombreEstudiantes:
-        nombre+=i + " , "
+    
     contenido.append(
         Paragraph("Profesores:" + nombreProfesor + " - Física I", styles["Normal"])
     )
     contenido.append(Paragraph("Colegio San José de Barranquilla", styles["Normal"]))
     contenido.append(Spacer(1, 12))
-    contenido.append(Paragraph("Integrantes: " + nombre, styles["Normal"]))
+    contenido.append(Paragraph("Integrantes: " + nombreEstudiante, styles["Normal"]))
     contenido.append(
         Paragraph(
             "________________________________________________________ Fecha: " + str(fecha),
@@ -135,25 +135,25 @@ def crear_laboratorio_mru_pdf(
     
     img._restrictSize(400, 300)
     contenido.append(img)
-    
+    contenido.append(Spacer(1, 8))
     #PREGUNTA 2
     contenido.append(Paragraph("2. (0.5 Puntos) Calcule la pendiente de 4 pares de puntos diferentes de la recta.", styles["Normal"]))
     respuesta_usuario_2 = st.session_state.ans_2_a + " " + st.session_state.ans_2_b + " " + st.session_state.ans_2_c + " " + st.session_state.ans_2_d
     respuesta_usuario_2.replace("#", " ")
     contenido.append(Paragraph(f"<b>Respuesta:</b> {respuesta_usuario_2}", styles["Normal"]))
-    
+    contenido.append(Spacer(1, 8))
     #PREGUNTA 3
     contenido.append(Paragraph("3. (0.5 Puntos) ¿Qué significado físico tienen las pendientes calculadas?", styles["Normal"]))
     
     contenido.append(Paragraph(f"<b>Respuesta:</b> {st.session_state.ans_3}", styles["Normal"]))
-    
+    contenido.append(Spacer(1, 8))
     #PREGUNTA 4
     
     contenido.append(Paragraph("""4. (0.5 Puntos) ¿Los valores obtenidos de las pendientes son iguales o diferentes? Si respondes que son
 iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿por qué sucede esto?""", styles["Normal"]))
     
     contenido.append(Paragraph(f"<b>Respuesta:</b> {st.session_state.ans_4}", styles["Normal"]))
-    
+    contenido.append(Spacer(1, 8))
     #PREGUNTA 5
     
     contenido.append(Paragraph("5. (0.5 Puntos) Con cada pendiente, complete la Tabla #3 de velocidades medias.", styles["Normal"]))
@@ -170,7 +170,7 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     # )
     # tabla3.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 1, colors.black)]))
     # contenido.append(tabla3)
-
+    contenido.append(Spacer(1, 8))
     contenido.append(Paragraph("A partir de los datos de la tabla realice un grafico de velocidad vs tiempo", styles["Normal"]))
 
     
@@ -178,7 +178,7 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     
     img_2._restrictSize(400, 300)
     contenido.append(img_2)
-
+    contenido.append(Spacer(1, 8))
     #PREGUNTA 6
     contenido.append(Paragraph("6. (0.5 Puntos) ¿Qué puede comentar acerca del gráfico de velocidad vs tiempo? ¿Es una línea horizontal?, ¿es una línea que no es completamente horizontal? Explique sus respuestas.", styles["Normal"]))
     
@@ -209,7 +209,7 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     
     contenido.append(Spacer(1, 8))
     contenido.append(Paragraph(f"<b>Respuesta seleccionada:</b> {respuesta_usuario_7}", styles["Normal"]))
-    
+    contenido.append(Spacer(1, 8))
     
     
 
@@ -223,7 +223,7 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     
     img_3._restrictSize(400, 300)
     contenido.append(img_3)
-    
+    contenido.append(Spacer(1, 8))
     contenido.append(
         Paragraph(
             "9. (0.5 Puntos) Conclusiones: Realice una breve conclusión de su Laboratorio de MRU", styles["Normal"]
@@ -344,7 +344,8 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     
 
     doc.build(contenido)
-    st.success(f"📄 Documento creado exitosamente en: `{"pdfs"}`")
-    st.download_button("Descargar PDF", open("pdfs", "rb"), file_name="laboratorio_mru.pdf")
+    st.success(f"📄 Documento creado exitosamente!")
+    
 
+    sendData.enviar_pdf_por_correo()
 

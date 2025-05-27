@@ -16,16 +16,18 @@ def getArduinoData():
     st.write("Arduino call")
 
 def endExperiment():
-    nombre = ""
-    for i in st.session_state.nombreEstudiantes:
-        nombre+=i + " , "
     
-    fileCreator.crear_laboratorio_mru_pdf("Experimento_Movimiento_Rectilineo_Uniforme (MRU)" + nombre, 
-                                                  st.session_state.nombreEstudiantes[-1], 
-                                                  st.session_state.nombreEstudiantes,
+    file = open("Utils/loginData.txt","r")
+    loginData = file.readlines()
+    
+    fileCreator.crear_laboratorio_mru_pdf("Experimento_Movimiento_Rectilineo_Uniforme (MRU)" + loginData[0], 
+                                                  loginData[2], 
+                                                  loginData[0],
                                                   datetime.now().date(),
                                                   st.session_state.datosArduino,
+
                                                   )
+    
 
 
 def goBack():
@@ -34,7 +36,7 @@ def goBack():
         st.success(msg)
         time.sleep(1)
         st.session_state.clear
-    pageManager.page = "homepage"
+    pageManager.page = "end"
     st.rerun()
 
 
@@ -75,10 +77,6 @@ def deployMRU():
         st.session_state.img_ans_2 = None
     if "img_ans_3" not in st.session_state:
         st.session_state.img_ans_3 = None
-    st.write(st.session_state.get("datos", "no esta datos"))
-    st.write(st.session_state.get("numEstu", "no esta numEstu"))
-    st.write(st.session_state.get("nombreEstudiantes", "no esta nombreEstudiantes"))
-    st.write(st.session_state.get("nombre_Profesor", "no esta profesor"))
     st.title("Laboratorio de Movimiento Rectilineo Uniforme (MRU)")
     st.markdown(
         """
@@ -524,10 +522,10 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
         if not st.session_state.continuar:
             endExperiment()
             
-            #goBack()
+            goBack()
         if st.session_state.seguro:
             st.session_state.continuar = False
             endExperiment()
-            #goBack()
+            goBack()
         st.session_state.seguro = True
         st.rerun()
