@@ -17,7 +17,8 @@ def crear_laboratorio_mru_pdf(
     nombreProfesor,
     nombreEstudiante,
     fecha,
-    datosArduino
+    datosArduino,
+    correo
     ):
    
 
@@ -347,5 +348,5 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     st.success(f"📄 Documento creado exitosamente!")
     
 
-    sendData.enviar_pdf_por_correo()
+    sendData.enviar_pdf_por_correo(correo)
 

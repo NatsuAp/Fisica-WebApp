@@ -5,15 +5,15 @@ import os
 from dotenv import load_dotenv
 import os
 
-def enviar_pdf_por_correo():
+def enviar_pdf_por_correo(correo, estudiantes):
     load_dotenv() 
     # Crear el mensaje
     remitente = os.getenv('CorreoRemitente')
     contraseña = os.getenv('contrasenaRemitente')
     ruta_pdf = 'pdfs\Experimento_MRU.pdf'  # Ruta del archivo PDF que deseas enviar
-    destinatario = 'andrewtt824@gmail.com'
-    asunto = 'Aquí tienes el archivo'
-    cuerpo = 'Hola, te envío el PDF solicitado.'  
+    destinatario = correo
+    asunto = 'Taller MRU'
+    cuerpo = f'Taller movimiento rectilineo uniforme de: {estudiantes}'  
     mensaje = EmailMessage()
     mensaje['Subject'] = asunto
     mensaje['From'] = remitente

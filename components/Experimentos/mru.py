@@ -25,6 +25,7 @@ def endExperiment():
                                                   loginData[0],
                                                   datetime.now().date(),
                                                   st.session_state.datosArduino,
+                                                  loginData[4]
                                                   )
     
 
@@ -159,10 +160,10 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
                 uploaded_file.seek(0)
                 image = Image.open(st.session_state.ans_1)
                 st.success("✅ ¡Archivo cargado exitosamente!")
-                # output_dir = "temp_images"
-                # os.makedirs(output_dir, exist_ok=True)  
-                # filename = f"{uuid.uuid4().hex}.png"
-                # image_path = os.path.join(output_dir, filename)
+                output_dir = "temp_images"
+                os.makedirs(output_dir, exist_ok=True)  
+                filename = f"{uuid.uuid4().hex}.png"
+                image_path = os.path.join(output_dir, filename)
 
                 with open(image_path, "wb") as f:
                     f.write(uploaded_file.getbuffer())
