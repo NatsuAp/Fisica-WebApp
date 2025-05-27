@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 import Utils.pageManager as pageManager
+import os
 # from arduino.connection import checkConnection, asyncCall
 def checkInput():
     try:
@@ -17,7 +18,7 @@ def deployLoginPage():
     if "numEstu" not in st.session_state:
          st.session_state.numEstu = None
     if "x" not in st.session_state:
-         st.session_state.x = False
+         st.session_state.x = True
     if "clicked" not in st.session_state:
         st.session_state.clicked = False
     datos = []
@@ -48,8 +49,10 @@ def deployLoginPage():
             
             datos.append(nombreProf)   
             datos.append(correoProf)
+           
+
+            f = open("Utils/loginData.txt", "w+")
             
-            f = open("Utils/loginData.txt", "a+")
             nombres =""
             for i in nombreEstudiantes:
                 nombres+= i + " , "

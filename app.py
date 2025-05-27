@@ -1,3 +1,4 @@
+import shutil
 from components.mainPage import deployMainPage
 import Utils.pageManager as pageManager
 from components.homepage import deployHomePage
@@ -6,10 +7,11 @@ from components.Experimentos.mru import deployMRU
 from components.ErrorPage import deployWarningPage
 from components.login import deployLoginPage   
 from components.endPage import deployEndPage
-if "nombre_Profesor" not in st.session_state:
-    st.session_state.nombre_Profesor = ""
+
+
 #pageManager.page= "mru"
-    
+
+shutil.rmtree("temp_images")
 print(pageManager.page)
 match pageManager.page:
     case "mainpage":
