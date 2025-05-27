@@ -527,13 +527,13 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
                 st.session_state.continuar = False
                 endExperiment()
                 goBack()
-            st.session_state.seguro = True
+            
         except Exception as e:
-            print(e)
+            
             st.session_state.error = True   
     if st.session_state.error:
         st.error(f"""Error Inesperado, Probablemente tenga que ver con el correo del profesor ingresado \n 
                  Correo del Profesor:{st.session_state.loginData[3]}""")
-
+        
 
         st.rerun()
