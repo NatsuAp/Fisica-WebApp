@@ -30,6 +30,7 @@ def enviar_pdf_por_correo(correo, estudiantes):
 
     # Configurar y enviar
     contexto = ssl.create_default_context()
+    print("holaaaaaaaaaaaaaaa")
     with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=contexto) as servidor:
         servidor.login(remitente, contraseña)
         servidor.send_message(mensaje)

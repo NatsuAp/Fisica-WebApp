@@ -1,3 +1,4 @@
+import pandas as pd
 from reportlab.lib.pagesizes import A4
 from reportlab.platypus import (
     SimpleDocTemplate,
@@ -12,6 +13,11 @@ from reportlab.lib import colors
 from reportlab.platypus import Image
 import streamlit as st
 from data import sendData
+import matplotlib.pyplot as plt
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
+
 def crear_laboratorio_mru_pdf(
     nombre_archivo,
     nombreProfesor,
@@ -121,8 +127,28 @@ def crear_laboratorio_mru_pdf(
             ["T = (T1+T2)/2", "", "", "", "", "", "", ""],
         ]
     )
+    file = open("Utils\expData.txt","r")
+    expData = file.readlines()
+    
+    x = float(expData[0].strip())
+    y = float(expData[1].strip())   
+    plt.plot([0, y], [0, x], marker='o')
+    plt.title("Distancia vs Tiempo ")
+    plt.xlabel("Tiempo (s)")
+    plt.ylabel("Distancia (cm)")
+    plt.grid(True)
+    plt.savefig("Utils/grafico.png")
+    plt.close()
     tabla1.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 1, colors.black)]))
-    contenido.append(tabla1)
+    #contenido.append(tabla1)
+    file = open("Utils/loginData.txt","r")
+    loginData = file.readlines()
+    # contenido.append(Paragraph(f"<b>Tabla estudiantes:</b>", styles["Normal"]))
+    # contenido.append(st.session_state.input_tiempo)
+    contenido.append(Paragraph(f"<b>Tabla Creada:</b>", styles["Normal"]))
+    contenido.append(Paragraph("<b>Gráfico Tiempo vs Distancia:</b>", styles["Normal"]))
+    contenido.append(Image("Utils/grafico.png", width=400, height=300))
+    
 
     # Preguntas de análisis
     contenido.append(Spacer(1, 12))
@@ -164,8 +190,8 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     
     #contenido.append(Paragraph(f"<b>Respuesta:</b> {st.session_state.ans_4}", styles["Normal"]))  TODO: TABLA
     # Tabla 3
-    # contenido.append(Spacer(1, 12))
-    # contenido.append(Paragraph("**Tabla #3: Velocidades medias**", styles["Heading3"]))
+    contenido.append(Spacer(1, 12))
+    contenido.append(Paragraph("**Tabla #3: Velocidades medias**", styles["Heading3"]))
     # tabla3 = Table(
     #     [
     #         ["Tiempos t(s)", "t1", "t2", "t3", "t4"],                                             #Este es un ejemplo de como hacerla
@@ -174,6 +200,13 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     # )
     # tabla3.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 1, colors.black)]))
     # contenido.append(tabla3)
+    st.session_state.tabla_5 = pd.DataFrame(st.session_state.tabla_5)
+    table = [st.session_state.tabla_5.columns.tolist()] + st.session_state.tabla_5.values.tolist() 
+    tabla_reporte = Table(table)
+
+# Luego, agregar este objeto Table a contenido:
+    contenido.append(tabla_reporte)
+    
     contenido.append(Spacer(1, 8))
     contenido.append(Paragraph("A partir de los datos de la tabla realice un grafico de velocidad vs tiempo", styles["Normal"]))
 
@@ -359,5 +392,6 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
         sendData.enviar_pdf_por_correo(correo, nombreEstudiante)
         return True
     except Exception as e:
+        print(e)
         return False
         

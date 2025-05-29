@@ -6,6 +6,7 @@ import pandas as pd
 from arduino import arduinoDataManager
 from PIL import Image
 import time
+from arduino.connection import checkConnection
 from data import questionBank, sendData
 from data import fileCreator
 from datetime import datetime
@@ -94,6 +95,14 @@ def deployMRU():
         st.session_state.img_ans_2 = None
     if "img_ans_3" not in st.session_state:
         st.session_state.img_ans_3 = None
+    if "input_tiempo" not in st.session_state:
+        st.session_state.input_tiempo = None
+    if "input_posicion" not in st.session_state:
+        st.session_state.input_posicion = None
+
+    if "tabla_5" not in st.session_state:
+        st.session_state.tabla_5 = None
+
     st.title("Laboratorio de Movimiento Rectilineo Uniforme (MRU)")
     st.markdown(
         """
@@ -139,16 +148,37 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
     st.caption(
         "La informacion conseguida se mostrara aqui cuando se realize el expermimento"
     )
+    if st.button("Refrescar"):
 
+        st.session_state.input_tiempo = arduinoDataManager.dataRetrieval("tiempo")
+        
+        
+        # datosTiempo = [
+        # ["T1", 0, str(3)],
+        # ["T = (T1+T2)/2", ""]
+        # ]
+        # columnasTiempo = [
+        # "Tiempo (s)",
+        # "t₁ (0 cm)",
+        # "t₂ ("+str(10)+ " cm)",
+        # ]
+        # columnasPosicion = [
+        # "Posiciones x(cm)",
+        # "0 cm",
+        # str(10) + " cm",
+       
+        #     ]
+        # datosPosicion = [["Tiempos t(s)", "0",str(3) ]]
+        # st.session_state.input_posicion = pd.DataFrame(datosPosicion, columns=columnasPosicion)
+        # st.session_state.input_tiempo   = pd.DataFrame(datosTiempo, columns=columnasTiempo)
     st.markdown("**Tabla #1** Tiempo transcurrido en cada marca")
-    tiempo = arduinoDataManager.runDataTiempo()
-    posicion = arduinoDataManager.runDataPosicion()
+    
     # tablaTiempo = st.data_editor(tiempo)
-    st.table(tiempo)
+    try:
+        st.table(st.session_state.input_tiempo)
+    except Exception as e:
+        st.write(st.session_state.input_tiempo)
 
-    st.markdown("**Tabla #2** Tiempo transcurrido en cada marca")
-    # tablaPosicion = st.data_editor(posicion)
-    st.table(posicion)
     st.markdown(
         """
               ####  1. **(0.5 Puntos)** Con los datos de la Tabla #2 dibuje un gráfico de posición **x(cm)** (eje vertical) vs. tiempo **t(s)** (eje horizontal). Use la escala apropiada en el diseño de su gráfico.
@@ -332,12 +362,12 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
     )
 
     tablaDatos = arduinoDataManager.runData5()
-    tabla5 = st.data_editor(tablaDatos, disabled=[""])
+    st.session_state.tabla_5 = st.data_editor(tablaDatos, disabled=[""])
 
     # a = tabla5.loc[tabla5["t1"]]
     # favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
     # https://docs.streamlit.io/develop/api-reference/data/st.data_editor
-
+    
     st.markdown(
         """
                 A partir de los datos de la Tabla #3 realice un gráfico de velocidad **v(cm/s)** (eje vertical) vs tiempo **t(s)** (eje horizontal).
@@ -531,20 +561,20 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
         )
     if st.button("Enviar Respuesta", key="final"):
 
-        st.session_state.continuar = checkQuestionsMissing()
+        # st.session_state.continuar = checkQuestionsMissing()
         
-        if not st.session_state.continuar:
-            temp = endExperiment()
-            if not checkError(temp):
-                goBack()
+        
+        temp = endExperiment()
+        if not checkError(temp):
+            goBack()
             
-        if st.session_state.seguro:
-            st.session_state.continuar = False
-            temp = endExperiment()
-            if not checkError(temp):
-                goBack()
+        # if st.session_state.seguro:
+        #     st.session_state.continuar = False
+        #     temp = endExperiment()
+        #     if not checkError(temp):
+        #         goBack()
             
-    st.session_state.seguro = True
+    #st.session_state.seguro = True
     
     if st.session_state.error:
         st.error(f"""No se pudo enviar el correo, Probablemente tenga que ver con el correo del profesor ingresado \n 
