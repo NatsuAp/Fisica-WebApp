@@ -9,7 +9,7 @@ from components.login import deployLoginPage
 from components.endPage import deployEndPage
 
 
-pageManager.page= "mru"
+#pageManager.page= "mru"
 
 
    

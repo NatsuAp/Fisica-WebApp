@@ -4,4 +4,4 @@ numpy
 pyserial
 reportlab
 dotenv
-mathplotlib
+matplotlib

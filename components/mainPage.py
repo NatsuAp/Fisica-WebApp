@@ -34,7 +34,7 @@ def deployMainPage():
          st.session_state.manualClick = False    
         
     st.title("***Conecta el arduino***")
-    if st.session_state.counter>2 and not st.session_state.success:
+    if st.session_state.counter>3 and not st.session_state.success:
             st.session_state.failure = False
             st.warning(st.session_state.warningMessage)
             st.session_state.userPort = st.text_input("Ingrese puerto. (COM3, COM4)")

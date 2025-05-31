@@ -110,23 +110,23 @@ def crear_laboratorio_mru_pdf(
     contenido.append(
         Paragraph("**Tabla #1: Tiempo transcurrido en cada marca**", styles["Heading3"])
     )
-    tabla1 = Table(
-        [
-            [
-                "Tiempo (s)",
-                "t1 (10 cm)",
-                "t2 (20 cm)",
-                "t3 (30 cm)",
-                "t4 (40 cm)",
-                "t5 (50 cm)",
-                "t6 (60 cm)",
-                "t7 (70 cm)",
-            ],
-            ["T1", "", "", "", "", "", "", ""],
-            ["T2", "", "", "", "", "", "", ""],
-            ["T = (T1+T2)/2", "", "", "", "", "", "", ""],
-        ]
-    )
+    # tabla1 = Table(
+    #     [
+    #         [
+    #             "Tiempo (s)",
+    #             "t1 (10 cm)",
+    #             "t2 (20 cm)",
+    #             "t3 (30 cm)",
+    #             "t4 (40 cm)",
+    #             "t5 (50 cm)",
+    #             "t6 (60 cm)",
+    #             "t7 (70 cm)",
+    #         ],
+    #         ["T1", "", "", "", "", "", "", ""],
+    #         ["T2", "", "", "", "", "", "", ""],
+    #         ["T = (T1+T2)/2", "", "", "", "", "", "", ""],
+    #     ]
+    # )
     file = open("Utils\expData.txt","r")
     expData = file.readlines()
     
@@ -139,13 +139,14 @@ def crear_laboratorio_mru_pdf(
     plt.grid(True)
     plt.savefig("Utils/grafico.png")
     plt.close()
-    tabla1.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 1, colors.black)]))
+    
+    #tabla1.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), 1, colors.black)]))
+    
     #contenido.append(tabla1)
     file = open("Utils/loginData.txt","r")
     loginData = file.readlines()
-    # contenido.append(Paragraph(f"<b>Tabla estudiantes:</b>", styles["Normal"]))
     # contenido.append(st.session_state.input_tiempo)
-    contenido.append(Paragraph(f"<b>Tabla Creada:</b>", styles["Normal"]))
+    contenido.append(Paragraph(f"<b>Tabla Creada Automaticamente:</b>", styles["Normal"]))
     contenido.append(Paragraph("<b>Gráfico Tiempo vs Distancia:</b>", styles["Normal"]))
     contenido.append(Image("Utils/grafico.png", width=400, height=300))
     
@@ -273,7 +274,7 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
     )
     contenido.append(Spacer(1, 8))
     
-    contenido.append(Paragraph(f"<b>Respuesta seleccionada:</b> {st.session_state.ans_9}", styles["Normal"]))
+    contenido.append(Paragraph(f"<b>Respuesta:</b> {st.session_state.ans_9}", styles["Normal"]))
     contenido.append(Spacer(1, 8))
     
     contenido.append(
