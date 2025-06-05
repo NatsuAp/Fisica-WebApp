@@ -25,7 +25,7 @@ def runData5():
 
 
 def dataRetrieval(tabla):
-    arduino = checkConnection(None)
+    arduino = st.session_state.arduino
     print("checkconnection" + str(arduino))
     try:
         

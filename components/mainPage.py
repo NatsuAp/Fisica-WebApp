@@ -32,9 +32,10 @@ def deployMainPage():
         st.session_state.userPort = ""
     if "manualClick" not in st.session_state:
          st.session_state.manualClick = False    
-        
+    if "arduino" not in st.session_state:
+        st.session_state.arduino = None
     st.title("***Conecta el arduino***")
-    if st.session_state.counter>3 and not st.session_state.success:
+    if st.session_state.counter>2 and not st.session_state.success:
             st.session_state.failure = False
             st.warning(st.session_state.warningMessage)
             st.session_state.userPort = st.text_input("Ingrese puerto. (COM3, COM4)")
@@ -69,11 +70,11 @@ def deployMainPage():
            
             #arduino = True
         if arduino != "userError" and arduino is not None: 
-           asyncCall()
-           st.session_state.success = True
-           st.session_state.failure = False
-           st.session_state.disabled = True
-           st.session_state.expButton = False
+            st.session_state.arduino = arduino
+            st.session_state.success = True
+            st.session_state.failure = False
+            st.session_state.disabled = True
+            st.session_state.expButton = False
         else:
               st.session_state.counter = st.session_state.counter+1
               st.session_state.success = False
