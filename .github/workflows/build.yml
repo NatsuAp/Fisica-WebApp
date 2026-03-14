@@ -2,6 +2,9 @@ name: Build and Push Docker Image
 on: [push]
 jobs:
   build:
+    permissions:
+      
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -11,4 +14,4 @@ jobs:
           context: .
           push: true
           tags: natsuuu/fisica_app:latest
-          dockerfile: dockerfile   
+          dockerfile: dockerfile    
