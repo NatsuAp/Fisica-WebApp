@@ -73,7 +73,7 @@ def deployLoginPage():
                 st.success("✔️ Datos completos. Guardado exitoso. 💽")
                 with st.spinner("Cargando", show_time=False):
                         time.sleep(1.6)
-                        pageManager.page = "mainpage"
+                        pageManager.st.session_state.page = "mainpage"
                         st.rerun()
           
                

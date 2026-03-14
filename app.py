@@ -13,8 +13,8 @@ from components.endPage import deployEndPage
 
 
    
-print(pageManager.page)
-match pageManager.page:
+print(pageManager.st.session_state.page)
+match pageManager.st.session_state.page:
     case "mainpage":
         deployMainPage()
     case "homepage":
@@ -27,7 +27,7 @@ match pageManager.page:
         deployLoginPage()
     case "end":
         deployEndPage()
-        
+        print(pageManager.page)
 
     
        

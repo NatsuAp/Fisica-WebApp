@@ -55,7 +55,7 @@ def escoger_pregunta_aleatoria_7():
     seleccionada = random.choice(preguntas)
     return seleccionada
 def escoger_pregunta_aleatoria_10_16(
-    file_path: str | Path = "resources\mru_question_bank.json",
+    file_path: str | Path = "resources/mru_question_bank.json",
     n_each: int = 2,
     seed: int | None = None
 ):

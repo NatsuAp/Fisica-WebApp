@@ -55,7 +55,7 @@ def deployMainPage():
     
         
     if st.button("Iniciar experimento", disabled=st.session_state.expButton):
-               pageManager.page="homepage"
+               pageManager.st.session_state.page = "homepage"
                st.rerun()
     
     
@@ -67,8 +67,8 @@ def deployMainPage():
             else:
                 arduino = checkConnection(None)
                 
-           
-            #arduino = True
+        
+            arduino = True
         if arduino != "userError" and arduino is not None: 
             st.session_state.arduino = arduino
             st.session_state.success = True

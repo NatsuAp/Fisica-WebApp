@@ -127,7 +127,7 @@ def crear_laboratorio_mru_pdf(
     #         ["T = (T1+T2)/2", "", "", "", "", "", "", ""],
     #     ]
     # )
-    file = open("Utils\expData.txt","r")
+    file = open("Utils/expData.txt","r")
     expData = file.readlines()
     
     x = float(expData[0].strip())
@@ -388,7 +388,7 @@ iguales, ¿por qué crees que sucede esto? ó si respondes que son diferentes ¿
 
     doc.build(contenido)
     st.success(f"📄 Documento creado exitosamente!")
-    
+    return True
     try:
         sendData.enviar_pdf_por_correo(correo, nombreEstudiante)
         return True

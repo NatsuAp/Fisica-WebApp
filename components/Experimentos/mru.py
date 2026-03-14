@@ -50,7 +50,7 @@ def goBack():
         st.success(msg)
         time.sleep(1)
         st.session_state.clear
-    pageManager.page = "end"
+    pageManager.st.session_state.page = "end"
     st.rerun()
 
 
@@ -565,16 +565,17 @@ Para la realización adecuada de esta práctica de laboratorio relacionada a MRU
         
         
         temp = endExperiment()
-        if not checkError(temp):
+        print("end" + str(temp))
+        if temp:
             goBack()
             
-        # if st.session_state.seguro:
-        #     st.session_state.continuar = False
-        #     temp = endExperiment()
-        #     if not checkError(temp):
-        #         goBack()
+        if st.session_state.seguro:
+            st.session_state.continuar = False
+            temp = endExperiment()
+            if not checkError(temp):
+                goBack()
             
-    #st.session_state.seguro = True
+    st.session_state.seguro = True
     
     if st.session_state.error:
         st.error(f"""No se pudo enviar el correo, Probablemente tenga que ver con el correo del profesor ingresado \n 
