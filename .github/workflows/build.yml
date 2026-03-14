@@ -2,9 +2,6 @@ name: Build and Push Docker Image
 on: [push]
 jobs:
   build:
-    permissions:
-      
-      packages: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,6 +9,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           push: true
           tags: natsuuu/fisica_app:latest
-          dockerfile: dockerfile    
+          dockerfile: dockerfile   
