@@ -8,7 +8,8 @@ from components.ErrorPage import deployWarningPage
 from components.login import deployLoginPage   
 from components.endPage import deployEndPage
 
-
+if "page" not in st.session_state:
+    st.session_state.page = "login"
 #pageManager.page= "mru"
 
 
@@ -27,7 +28,7 @@ match pageManager.st.session_state.page:
         deployLoginPage()
     case "end":
         deployEndPage()
-        print(pageManager.page)
+        
 
     
        

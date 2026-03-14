@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  fisica_app:
+    image: fisica_app
+    ports:
+      - "8501:8501"
