@@ -13,7 +13,7 @@ docker pull ghcr.io/natsuap/fisica-webapp:f806308
 
 2. Ejecutar el contenedor
 
-docker run -p 8501:8501 fisica_app
+docker compose up
 
 3. Abrir la aplicación
 
@@ -22,4 +22,8 @@ Una vez iniciado el contenedor, la terminal mostrará el enlace para acceder a l
 Abrir en el navegador:
 
 http://localhost:8501
+
+4. Cuando termine de usar el programa cierre el contenedor
+
+   docker compose down
 
