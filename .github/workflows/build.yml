@@ -10,5 +10,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: tuusuario/tuapp:latest
+          tags: natsuuu/fisica_app:latest
           dockerfile: dockerfile   
